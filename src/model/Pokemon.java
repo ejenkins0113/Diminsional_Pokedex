@@ -2,23 +2,23 @@ package model;
 
 public class Pokemon implements Comparable<Pokemon> {
 
-    // --- Fields ---
+    // ==== Attributes ====
     private int id;
     private String name;
     private String primaryType;
-    private String secondaryType;   // null if none
+    private String secondaryType;   // can be null or empty if no secondary type
     private int level;
     private int hp;
     private int attack;
     private int defense;
     private String dimension;
-    private int evolutionStage;     // 1 = base, 2 = stage 1, 3 = stage 2
+    private int evolutionStage;     // 0 = base, 1 = first evolution, 2 = second evolution
     private boolean isMega;
     private boolean seen;
     private boolean caught;
     private String description;
 
-    // --- Constructor ---
+    // ==== Constructor ====
     public Pokemon(int id, String name, String primaryType, String secondaryType,
                    int level, int hp, int attack, int defense,
                    String dimension, int evolutionStage, boolean isMega,
@@ -39,7 +39,7 @@ public class Pokemon implements Comparable<Pokemon> {
         this.description = description;
     }
 
-    // --- Getters ---
+    // ==== Getters ====
     public int getId() { return id; }
     public String getName() { return name; }
     public String getPrimaryType() { return primaryType; }
@@ -55,7 +55,7 @@ public class Pokemon implements Comparable<Pokemon> {
     public boolean isCaught() { return caught; }
     public String getDescription() { return description; }
 
-    // --- Setters ---
+    // ==== Setters ====
     public void setId(int id) { this.id = id; }
     public void setName(String name) { this.name = name; }
     public void setPrimaryType(String primaryType) { this.primaryType = primaryType; }
@@ -71,13 +71,13 @@ public class Pokemon implements Comparable<Pokemon> {
     public void setCaught(boolean caught) { this.caught = caught; }
     public void setDescription(String description) { this.description = description; }
 
-    // --- Comparable: default sort by ID ---
+    // ==== compareTo for sorting by ID ====
     @Override
     public int compareTo(Pokemon other) {
         return Integer.compare(this.id, other.id);
     }
 
-    // --- toString ---
+    // ==== toString for display ====
     @Override
     public String toString() {
         String type = (secondaryType != null && !secondaryType.isEmpty())
