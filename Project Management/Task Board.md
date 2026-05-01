@@ -16,3 +16,7 @@
 - Project management structure created
 - Sprint planning converted to markdown files
 - Sprint retro converted to markdown files
+- src/ package structure created (model, manager, systems, sorting, ui)
+- Pokemon class implemented with all fields, constructor, getters, setters, toString, and Comparable
+- Skeleton class files created for DexManager, EncounterSystem, EvolutionHistory, TeamBuilder, CustomSorter, MainMenu
+- All files compile cleanly

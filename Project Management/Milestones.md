@@ -2,7 +2,8 @@
 
 ## Milestone 1 - Foundation Ready
 Target: Day 1
-Status: Not Started
+Status: Done
+Completed: Day 1 (May 1, 2026)
 Success Criteria:
 - Project structure is in place
 - Pokemon class is implemented
