@@ -20,3 +20,7 @@
 - Pokemon class implemented with all fields, constructor, getters, setters, toString, and Comparable
 - Skeleton class files created for DexManager, EncounterSystem, EvolutionHistory, TeamBuilder, CustomSorter, MainMenu
 - All files compile cleanly
+- DexManager core implemented: addPokemon, removePokemonByName, searchByName, displayAllPokemon
+- Name normalization and duplicate-rejection logic in place
+- 8 sample Pokemon seeded across Prime, Shadow, Ruins, and Storm dimensions
+- DexManager compiles cleanly

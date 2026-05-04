@@ -5,17 +5,18 @@ Target: Day 1
 Status: Done
 Completed: Day 1 (May 1, 2026)
 Success Criteria:
-- Project structure is in place
-- Pokemon class is implemented
-- Comparable default rule is defined
+- [X] Project structure is in place
+- [X] Pokemon class is implemented
+- [X] Comparable default rule is defined
 
 ## Milestone 2 - Core Manager Ready
 Target: Day 2 to Day 3
-Status: Not Started
+Status: In Progress
+Partially Completed: Day 2 (May 4, 2026)
 Success Criteria:
-- DexManager supports add, remove, search, display
-- Filter by type and dimension is working
-- Sample data is available
+- [x] DexManager supports add, remove, search, display
+- [ ] Filter by type and dimension is working
+- [x] Sample data is available
 
 ## Milestone 3 - Sorting and Encounters Ready
 Target: Day 4 to Day 5
