@@ -26,29 +26,37 @@ public class DexManager {
     // ==== Add ====
     // Returns true if added successfully, false if duplicate or null.
     public boolean addPokemon(Pokemon pokemon) {
-        if (pokemon == null) return false;
+        if (pokemon == null) 
+            return false;
         String key = normalize(pokemon.getName());
-        if (pokemonMap.containsKey(key)) return false; // reject duplicate
-        pokemonList.add(pokemon);
-        pokemonMap.put(key, pokemon);
-        return true;
+
+        if (pokemonMap.containsKey(key)) 
+            return false; // reject duplicate
+            pokemonList.add(pokemon);
+            pokemonMap.put(key, pokemon);
+            return true;
+          
     }
 
     // ==== Remove ====
     // Returns true if found and removed, false if not found.
     public boolean removePokemonByName(String name) {
-        if (name == null) return false;
+        if (name == null) 
+            return false;
         String key = normalize(name);
         Pokemon target = pokemonMap.remove(key);
-        if (target == null) return false;
-        pokemonList.remove(target);
-        return true;
+
+        if (target == null) 
+            return false;
+            pokemonList.remove(target);
+            return true;
     }
 
     // ==== Search ====
     // Returns matching Pokemon or null if not found.
     public Pokemon searchByName(String name) {
-        if (name == null) return null;
+        if (name == null) 
+            return null;
         return pokemonMap.get(normalize(name));
     }
 
@@ -58,6 +66,7 @@ public class DexManager {
             System.out.println("The Pokedex is empty.");
             return;
         }
+
         System.out.println("=== Dimensional Pokedex (" + pokemonList.size() + " entries) ===");
         for (Pokemon p : pokemonList) {
             System.out.println(p);
@@ -65,8 +74,11 @@ public class DexManager {
     }
 
     // ==== Getters ====
-    public ArrayList<Pokemon> getPokemonList() { return pokemonList; }
-    public int getSize() { return pokemonList.size(); }
+    public ArrayList<Pokemon> getPokemonList() {
+         return pokemonList; }
+         
+    public int getSize() { 
+        return pokemonList.size(); }
 
     // ==== Sample Data ====
     // Seeds the dex with starter Pokemon across multiple types and dimensions.
