@@ -1,21 +1,21 @@
 # Test Checklist
 
 ## Core Data Model
-- [ ] Pokemon object can be created with all required fields
-- [ ] Optional secondary type works correctly
-- [ ] toString displays readable information
+- [x] Pokemon object can be created with all required fields
+- [x] Optional secondary type works correctly
+- [x] toString displays readable information
 
 ## Dex Manager
-- [ ] Add Pokemon works
-- [ ] Remove Pokemon works
-- [ ] Search by name works
-- [ ] Display all Pokemon works
+- [x] Add Pokemon works
+- [x] Remove Pokemon works
+- [x] Search by name works
+- [x] Display all Pokemon works
 
 ## Filtering and Sorting
-- [ ] Filter by type works
-- [ ] Filter by dimension works
-- [ ] Comparable ordering works as expected
-- [ ] Custom sorting algorithm works for selected attribute
+- [x] Filter by type works
+- [x] Filter by dimension works
+- [x] Comparable ordering works as expected
+- [x] Custom sorting algorithm works for selected attribute
 
 ## Encounter System
 - [ ] PriorityQueue enqueue works

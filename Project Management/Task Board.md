@@ -1,11 +1,9 @@
 # Task Board
 
 ## To Do
-- Finalize Pokemon class fields and methods
-- Build DexManager operations
-- Implement filtering and sorting
-- Build encounter and evolution systems
-- Build team builder
+- Build encounter system using PriorityQueue
+- Build evolution history stack with undo
+- Build team builder add/remove/display
 - Integrate console menu
 - Run final testing and cleanup
 
@@ -24,3 +22,8 @@
 - Name normalization and duplicate-rejection logic in place
 - 8 sample Pokemon seeded across Prime, Shadow, Ruins, and Storm dimensions
 - DexManager compiles cleanly
+- filterByType and filterByDimension added to DexManager (case-insensitive, returns empty list on no match)
+- CustomSorter implemented: SortField enum (ID, LEVEL, ATTACK) and Selection Sort algorithm
+- DexManagerFilterTest written and passing: 14/14
+- CustomSorterTest written and passing: 11/11
+- Total test count: 88/88 across all suites

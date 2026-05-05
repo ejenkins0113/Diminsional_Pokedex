@@ -35,15 +35,18 @@ Build a functional console-based Java application called Dimensional Dex within 
 - Implement add, remove, search, and display
 - Add sample Pokemon entries
 
-### Day 3
-- Implement filtering by type and dimension
-- Test map-based lookup and list-based storage
-- Clean up model and manager responsibilities
+### Day 3 ✓ (May 5, 2026)
+- Implemented filterByType and filterByDimension in DexManager
+- Implemented CustomSorter with SortField enum and Selection Sort
+- DexManagerFilterTest (14/14) and CustomSorterTest (11/11) written and passing
+- Total tests: 88/88
+- Milestone 2 fully closed, Milestone 3 sorting satisfied
 
 ### Day 4
-- Implement custom sorting algorithm
-- Add sorting by level, attack, or ID
-- Verify Comparable<Pokemon> behavior
+- Implement EncounterSystem using PriorityQueue
+- Define encounter priority rule (higher level = higher priority)
+- Write EncounterSystemTest
+- Complete Milestone 3
 
 ### Day 5
 - Build encounter system using PriorityQueue
