@@ -73,6 +73,44 @@ public class DexManager {
         }
     }
 
+    // ==== Filter by Type ====
+    // Returns all Pokemon whose primary or secondary type matches (case-insensitive).
+    // Returns an empty list if no matches are found.
+    public ArrayList<Pokemon> filterByType(String type) {
+        ArrayList<Pokemon> results = new ArrayList<>();
+        if (type == null) 
+            return results;
+
+        String query = type.trim().toLowerCase();
+        for (Pokemon p : pokemonList) {
+            boolean matchPrimary = p.getPrimaryType() != null &&
+                    p.getPrimaryType().toLowerCase().equals(query);
+            boolean matchSecondary = p.getSecondaryType() != null &&
+                    p.getSecondaryType().toLowerCase().equals(query);
+            if (matchPrimary || matchSecondary) {
+                results.add(p);
+            }
+        }
+        return results;
+    }
+
+    // ==== Filter by Dimension ====
+    // Returns all Pokemon from the given dimension (case-insensitive).
+    // Returns an empty list if no matches are found.
+    public ArrayList<Pokemon> filterByDimension(String dimension) {
+        ArrayList<Pokemon> results = new ArrayList<>();
+        if (dimension == null) 
+            return results;     
+        
+        String query = dimension.trim().toLowerCase();
+        for (Pokemon p : pokemonList) {
+            if (p.getDimension() != null && p.getDimension().toLowerCase().equals(query)) {
+                results.add(p);
+            }
+        }
+        return results;
+    }
+
     // ==== Getters ====
     public ArrayList<Pokemon> getPokemonList() {
          return pokemonList; }
