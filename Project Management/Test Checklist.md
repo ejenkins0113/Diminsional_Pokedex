@@ -18,8 +18,8 @@
 - [x] Custom sorting algorithm works for selected attribute
 
 ## Encounter System
-- [ ] PriorityQueue enqueue works
-- [ ] Encounter dequeue follows priority rules
+- [x] PriorityQueue enqueue works
+- [x] Encounter dequeue follows priority rules
 
 ## Evolution History
 - [ ] Evolution events are recorded

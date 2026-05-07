@@ -1,7 +1,6 @@
 # Task Board
 
 ## To Do
-- Build encounter system using PriorityQueue
 - Build evolution history stack with undo
 - Build team builder add/remove/display
 - Integrate console menu
@@ -26,4 +25,6 @@
 - CustomSorter implemented: SortField enum (ID, LEVEL, ATTACK) and Selection Sort algorithm
 - DexManagerFilterTest written and passing: 14/14
 - CustomSorterTest written and passing: 11/11
-- Total test count: 88/88 across all suites
+- EncounterSystem implemented: PriorityQueue with level-descending encounter priority
+- EncounterSystemTest written and passing: 13/13
+- Full regression suites passing: 101/101

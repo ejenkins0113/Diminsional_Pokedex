@@ -20,11 +20,11 @@ Success Criteria:
 
 ## Milestone 3 - Sorting and Encounters Ready
 Target: Day 4 to Day 5
-Status: In Progress
-Partially Completed: Day 3 (May 5, 2026)
+Status: Done
+Completed: Day 4 (May 7, 2026)
 Success Criteria:
 - [x] Custom sorting algorithm is implemented
-- [ ] Encounter system using PriorityQueue is working
+- [x] Encounter system using PriorityQueue is working
 
 ## Milestone 4 - Evolution and Team Ready
 Target: Day 6
