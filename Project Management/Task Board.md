@@ -1,13 +1,12 @@
 # Task Board
 
 ## To Do
-- Build evolution history stack with undo
-- Build team builder add/remove/display
 - Integrate console menu
 - Run final testing and cleanup
 
 ## In Progress
-- None
+- Build evolution history stack with undo
+- Build team builder add/remove/display
 
 ## Done
 - Project management structure created

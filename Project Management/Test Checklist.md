@@ -35,3 +35,8 @@
 - [ ] Console menu navigates all features
 - [ ] Invalid user input is handled safely
 - [ ] No crashes in normal usage
+
+## Day 6 Execution Priority
+1. Complete all Evolution History checks first.
+2. Complete all Team Builder checks second.
+3. Run full regression after both systems suites pass.
