@@ -22,14 +22,14 @@
 - [x] Encounter dequeue follows priority rules
 
 ## Evolution History
-- [ ] Evolution events are recorded
-- [ ] Undo evolution reverts latest event
-- [ ] Empty stack undo is handled safely
+- [x] Evolution events are recorded
+- [x] Undo evolution reverts latest event
+- [x] Empty stack undo is handled safely
 
 ## Team Builder
-- [ ] Add to team works
-- [ ] Remove from team works
-- [ ] Display current team works
+- [x] Add to team works
+- [x] Remove from team works
+- [x] Display current team works
 
 ## Integration and Stability
 - [ ] Console menu navigates all features

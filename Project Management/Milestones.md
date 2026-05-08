@@ -28,11 +28,11 @@ Success Criteria:
 
 ## Milestone 4 - Evolution and Team Ready
 Target: Day 6
-Status: In Progress
-Started: Day 6 prep (May 8, 2026)
+Status: Done
+Completed: Day 6 (May 8, 2026)
 Success Criteria:
-- [ ] Evolution history stack works with undo
-- [ ] Team builder add and remove works
+- [x] Evolution history stack works with undo
+- [x] Team builder add and remove works
 
 ## Milestone 5 - Final Integration Ready
 Target: Day 7

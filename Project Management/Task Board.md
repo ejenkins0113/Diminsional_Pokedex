@@ -5,8 +5,6 @@
 - Run final testing and cleanup
 
 ## In Progress
-- Build evolution history stack with undo
-- Build team builder add/remove/display
 
 ## Done
 - Project management structure created
@@ -27,3 +25,8 @@
 - EncounterSystem implemented: PriorityQueue with level-descending encounter priority
 - EncounterSystemTest written and passing: 13/13
 - Full regression suites passing: 101/101
+- EvolutionHistory implemented: stack-based record, peek, undo, and count behavior
+- EvolutionHistoryTest written and passing: 14/14
+- TeamBuilder implemented: max size 6, duplicate rejection, remove/contains/display
+- TeamBuilderTest written and passing: 14/14
+- Full regression suites passing: 129/129
