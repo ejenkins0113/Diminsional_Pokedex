@@ -1,10 +1,12 @@
 # Task Board
 
 ## To Do
-- Integrate console menu
 - Run final testing and cleanup
 
 ## In Progress
+- Integrate console menu with all systems
+- Add invalid-input handling across menu flows
+- Prepare final demo validation pass
 
 ## Done
 - Project management structure created
