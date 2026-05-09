@@ -93,6 +93,170 @@ When you run the project, the main menu includes:
 
 All options are available through the console menu implemented in src/ui/MainMenu.java.
 
+## Demo Walkthrough
+
+This is a step-by-step demo that exercises every feature and data structure. Run the project with `.\run-demo.cmd`, then follow these inputs in order.
+
+---
+
+### Step 1 — Load sample data (ArrayList + HashMap)
+**Input:** `1`
+
+Loads 19 built-in Pokemon across four dimensions (Norasua, Megalune, Valurtine, Univi), including Gen 1–5 representatives and the full Eevee evolution line. Populates the internal `ArrayList` and `HashMap`.
+
+```
++------------------------------------------------------------------------...+
+| Message                                                                   |
++------------------------------------------------------------------------...+
+| Sample data loaded. Entries in dex: 19                                    |
++------------------------------------------------------------------------...+
+```
+
+---
+
+### Step 2 — Display all Pokemon (ArrayList iteration)
+**Input:** `2`
+
+Iterates the `ArrayList` and prints all 19 entries in a single boxed table.
+
+---
+
+### Step 3 — Search by name (HashMap O(1) lookup)
+**Input:** `3`
+**Name:** `Eevee`
+
+Demonstrates constant-time name lookup via the internal `HashMap<String, Pokemon>`.
+
+```
++------------------------------------------------------------------------...+
+| Message                                                                   |
++------------------------------------------------------------------------...+
+| Found: [ID:11] Eevee | Normal | Lv.20 | HP:55 | ATK:55 | DEF:50 | ...    |
++------------------------------------------------------------------------...+
+```
+
+---
+
+### Step 4 — Filter by type (ArrayList scan)
+**Input:** `4`
+**Type:** `Dark`
+
+Scans the `ArrayList` and returns every Dark-type Pokemon (Umbreon, Zoroark, Hydreigon, Tyranitar).
+
+---
+
+### Step 5 — Filter by dimension (ArrayList scan)
+**Input:** `5`
+**Dimension:** `Norasua`
+
+Returns all Pokemon assigned to the Norasua dimension (Bulbasaur, Gardevoir, Zoroark, Eevee, Espeon).
+
+---
+
+### Step 6 — Sort by Level (Selection Sort)
+**Input:** `6`
+**Sort field:** `2` (Level)
+
+Runs the custom in-place Selection Sort (`CustomSorter.java`) and redisplays the dex sorted by level ascending.
+
+---
+
+### Step 7 — Queue two encounters (PriorityQueue, higher level first)
+**Input:** `7` → Name: `Hydreigon`
+**Input:** `7` → Name: `Eevee`
+
+Adds both to the `PriorityQueue`. Hydreigon (Lv.78) ranks above Eevee (Lv.20).
+
+---
+
+### Step 8 — Preview next encounter (PriorityQueue peek)
+**Input:** `9`
+
+Calls `peek()` on the queue. Hydreigon appears first because higher-level encounters have higher priority.
+
+```
++------------------------------------------------------------------------...+
+| Message                                                                   |
++------------------------------------------------------------------------...+
+| Next encounter: [ID:10] Hydreigon | Dragon/Dark | Lv.78 | ...            |
++------------------------------------------------------------------------...+
+```
+
+---
+
+### Step 9 — Process encounter (PriorityQueue poll)
+**Input:** `8`
+
+Calls `poll()`. Hydreigon is resolved and removed. Eevee becomes next.
+
+---
+
+### Step 10 — Record evolution event (Stack push)
+**Input:** `10`
+**Event text:** `Eevee evolved to Vaporeon in Megalune`
+
+Pushes the string onto the `Stack<String>` in `EvolutionHistory`.
+
+---
+
+### Step 11 — Peek evolution event (Stack peek)
+**Input:** `12`
+
+Reads the top of the stack without removing it.
+
+```
++------------------------------------------------------------------------...+
+| Message                                                                   |
++------------------------------------------------------------------------...+
+| Latest evolution event: Eevee evolved to Vaporeon in Megalune            |
++------------------------------------------------------------------------...+
+```
+
+---
+
+### Step 12 — Undo evolution event (Stack pop)
+**Input:** `11`
+
+Pops the top entry off the stack, reverting the last recorded event.
+
+---
+
+### Step 13 — Build a team (LinkedList/ArrayList max-6, no duplicates)
+**Input:** `13` → Name: `Pikachu`
+**Input:** `13` → Name: `Sylveon`
+
+Adds two Pokemon to the active team. Team size shows 2/6.
+
+---
+
+### Step 14 — Display team
+**Input:** `15`
+
+Prints the current team in a boxed view.
+
+---
+
+### Step 15 — Remove from team
+**Input:** `14` → Name: `Pikachu`
+
+Removes Pikachu. Team size drops to 1/6.
+
+---
+
+### Step 16 — Display team again
+**Input:** `15`
+
+Confirms Pikachu is gone; only Sylveon remains.
+
+---
+
+### Step 17 — Exit
+**Input:** `0`
+
+Prints goodbye message and terminates.
+
+---
+
 ## Run Full Regression Tests
 
 From project root:
