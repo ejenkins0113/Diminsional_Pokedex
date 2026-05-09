@@ -18,6 +18,7 @@ import systems.TeamBuilder;
  * and team building into a single command-line workflow.</p>
  */
 public class MainMenu {
+    private static final int BOX_WIDTH = 120;
 
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -32,7 +33,7 @@ public class MainMenu {
      * @param args command-line arguments (unused)
      */
     public static void main(String[] args) {
-        System.out.println("Dimensional Dex - Console Ready");
+        printBoxMessage("Dimensional Dex - Console Ready");
 
         boolean running = true;
         while (running) {
@@ -44,7 +45,7 @@ public class MainMenu {
                     loadSampleData();
                     break;
                 case 2:
-                    dexManager.displayAllPokemon();
+                    displayDexBoxed();
                     break;
                 case 3:
                     searchPokemon();
@@ -83,14 +84,14 @@ public class MainMenu {
                     removeFromTeam();
                     break;
                 case 15:
-                    teamBuilder.displayTeam();
+                    displayTeamBoxed();
                     break;
                 case 0:
                     running = false;
-                    System.out.println("Exiting Dimensional Dex. Goodbye.");
+                    printBoxMessage("Exiting Dimensional Dex. Goodbye.");
                     break;
                 default:
-                    System.out.println("Invalid option. Please choose a number from the menu.");
+                    printBoxMessage("Invalid option. Please choose a number from the menu.");
                     break;
             }
         }
@@ -102,23 +103,24 @@ public class MainMenu {
      * Prints the main command menu.
      */
     private static void printMainMenu() {
-        System.out.println("\n=== Dimensional Dex Menu ===");
-        System.out.println("1. Load sample Pokemon data");
-        System.out.println("2. Display all Pokemon");
-        System.out.println("3. Search Pokemon by name");
-        System.out.println("4. Filter Pokemon by type");
-        System.out.println("5. Filter Pokemon by dimension");
-        System.out.println("6. Sort Pokemon (ID/Level/Attack)");
-        System.out.println("7. Add encounter by Pokemon name");
-        System.out.println("8. Process next encounter");
-        System.out.println("9. Preview next encounter");
-        System.out.println("10. Record evolution event");
-        System.out.println("11. Undo last evolution event");
-        System.out.println("12. Peek last evolution event");
-        System.out.println("13. Add Pokemon to team by name");
-        System.out.println("14. Remove Pokemon from team by name");
-        System.out.println("15. Display current team");
-        System.out.println("0. Exit");
+        ArrayList<String> menuLines = new ArrayList<>();
+        menuLines.add("1. Load sample Pokemon data");
+        menuLines.add("2. Display all Pokemon");
+        menuLines.add("3. Search Pokemon by name");
+        menuLines.add("4. Filter Pokemon by type");
+        menuLines.add("5. Filter Pokemon by dimension");
+        menuLines.add("6. Sort Pokemon (ID/Level/Attack)");
+        menuLines.add("7. Add encounter by Pokemon name");
+        menuLines.add("8. Process next encounter");
+        menuLines.add("9. Preview next encounter");
+        menuLines.add("10. Record evolution event");
+        menuLines.add("11. Undo last evolution event");
+        menuLines.add("12. Peek last evolution event");
+        menuLines.add("13. Add Pokemon to team by name");
+        menuLines.add("14. Remove Pokemon from team by name");
+        menuLines.add("15. Display current team");
+        menuLines.add("0. Exit");
+        printBox("Dimensional Dex Menu", menuLines);
     }
 
     /**
@@ -126,11 +128,11 @@ public class MainMenu {
      */
     private static void loadSampleData() {
         if (dexManager.getSize() > 0) {
-            System.out.println("Sample data already loaded or dex already has entries. Skipped.");
+            printBoxMessage("Sample data already loaded or dex already has entries. Skipped.");
             return;
         }
         dexManager.loadSampleData();
-        System.out.println("Sample data loaded. Entries in dex: " + dexManager.getSize());
+        printBoxMessage("Sample data loaded. Entries in dex: " + dexManager.getSize());
     }
 
     /**
@@ -140,10 +142,10 @@ public class MainMenu {
         String name = readText("Enter Pokemon name to search: ");
         Pokemon found = dexManager.searchByName(name);
         if (found == null) {
-            System.out.println("Pokemon not found: " + name);
+            printBoxMessage("Pokemon not found: " + name);
             return;
         }
-        System.out.println("Found: " + found);
+        printBoxMessage("Found: " + found);
     }
 
     /**
@@ -169,7 +171,7 @@ public class MainMenu {
      */
     private static void sortDex() {
         if (dexManager.getPokemonList().isEmpty()) {
-            System.out.println("Dex is empty. Load sample data first.");
+            printBoxMessage("Dex is empty. Load sample data first.");
             return;
         }
 
@@ -188,13 +190,13 @@ public class MainMenu {
                 field = SortField.ATTACK;
                 break;
             default:
-                System.out.println("Invalid sort option.");
+                printBoxMessage("Invalid sort option.");
                 return;
         }
 
         CustomSorter.sort(dexManager.getPokemonList(), field);
-        System.out.println("Pokemon sorted by " + field + " in ascending order.");
-        dexManager.displayAllPokemon();
+        printBoxMessage("Pokemon sorted by " + field + " in ascending order.");
+        displayDexBoxed();
     }
 
     /**
@@ -202,23 +204,23 @@ public class MainMenu {
      */
     private static void addEncounter() {
         if (dexManager.getPokemonList().isEmpty()) {
-            System.out.println("Dex is empty. Load sample data first.");
+            printBoxMessage("Dex is empty. Load sample data first.");
             return;
         }
 
         String name = readText("Enter Pokemon name to queue as encounter: ");
         Pokemon pokemon = dexManager.searchByName(name);
         if (pokemon == null) {
-            System.out.println("Pokemon not found in dex: " + name);
+            printBoxMessage("Pokemon not found in dex: " + name);
             return;
         }
 
         boolean added = encounterSystem.addEncounter(pokemon);
         if (added) {
-            System.out.println("Encounter queued: " + pokemon.getName());
-            System.out.println("Queued encounters: " + encounterSystem.getEncounterCount());
+            printBoxMessage("Encounter queued: " + pokemon.getName() + " | Queued encounters: "
+                    + encounterSystem.getEncounterCount());
         } else {
-            System.out.println("Failed to queue encounter.");
+            printBoxMessage("Failed to queue encounter.");
         }
     }
 
@@ -228,11 +230,11 @@ public class MainMenu {
     private static void processNextEncounter() {
         Pokemon next = encounterSystem.nextEncounter();
         if (next == null) {
-            System.out.println("No encounters queued.");
+            printBoxMessage("No encounters queued.");
             return;
         }
-        System.out.println("Encounter resolved: " + next);
-        System.out.println("Remaining encounters: " + encounterSystem.getEncounterCount());
+        printBoxMessage("Encounter resolved: " + next + " | Remaining encounters: "
+                + encounterSystem.getEncounterCount());
     }
 
     /**
@@ -241,10 +243,10 @@ public class MainMenu {
     private static void previewNextEncounter() {
         Pokemon next = encounterSystem.peekNextEncounter();
         if (next == null) {
-            System.out.println("No encounters queued.");
+            printBoxMessage("No encounters queued.");
             return;
         }
-        System.out.println("Next encounter: " + next);
+        printBoxMessage("Next encounter: " + next);
     }
 
     /**
@@ -254,10 +256,9 @@ public class MainMenu {
         String event = readText("Enter evolution event text: ");
         boolean recorded = evolutionHistory.recordEvolution(event);
         if (recorded) {
-            System.out.println("Evolution event recorded.");
-            System.out.println("History size: " + evolutionHistory.getHistoryCount());
+            printBoxMessage("Evolution event recorded. History size: " + evolutionHistory.getHistoryCount());
         } else {
-            System.out.println("Could not record event. Input cannot be blank.");
+            printBoxMessage("Could not record event. Input cannot be blank.");
         }
     }
 
@@ -267,10 +268,10 @@ public class MainMenu {
     private static void undoEvolutionEvent() {
         String undone = evolutionHistory.undoLastEvolution();
         if (undone == null) {
-            System.out.println("No evolution events to undo.");
+            printBoxMessage("No evolution events to undo.");
             return;
         }
-        System.out.println("Undid: " + undone);
+        printBoxMessage("Undid: " + undone);
     }
 
     /**
@@ -279,10 +280,10 @@ public class MainMenu {
     private static void peekEvolutionEvent() {
         String latest = evolutionHistory.peekLastEvolution();
         if (latest == null) {
-            System.out.println("No evolution history recorded yet.");
+            printBoxMessage("No evolution history recorded yet.");
             return;
         }
-        System.out.println("Latest evolution event: " + latest);
+        printBoxMessage("Latest evolution event: " + latest);
     }
 
     /**
@@ -290,23 +291,22 @@ public class MainMenu {
      */
     private static void addToTeam() {
         if (dexManager.getPokemonList().isEmpty()) {
-            System.out.println("Dex is empty. Load sample data first.");
+            printBoxMessage("Dex is empty. Load sample data first.");
             return;
         }
 
         String name = readText("Enter Pokemon name to add to team: ");
         Pokemon pokemon = dexManager.searchByName(name);
         if (pokemon == null) {
-            System.out.println("Pokemon not found in dex: " + name);
+            printBoxMessage("Pokemon not found in dex: " + name);
             return;
         }
 
         boolean added = teamBuilder.addToTeam(pokemon);
         if (added) {
-            System.out.println(pokemon.getName() + " added to team.");
-            System.out.println("Team size: " + teamBuilder.getTeamSize() + "/6");
+            printBoxMessage(pokemon.getName() + " added to team. Team size: " + teamBuilder.getTeamSize() + "/6");
         } else {
-            System.out.println("Could not add to team (duplicate, invalid, or team is full).");
+            printBoxMessage("Could not add to team (duplicate, invalid, or team is full).");
         }
     }
 
@@ -317,10 +317,9 @@ public class MainMenu {
         String name = readText("Enter Pokemon name to remove from team: ");
         boolean removed = teamBuilder.removeFromTeamByName(name);
         if (removed) {
-            System.out.println(name + " removed from team.");
-            System.out.println("Team size: " + teamBuilder.getTeamSize() + "/6");
+            printBoxMessage(name + " removed from team. Team size: " + teamBuilder.getTeamSize() + "/6");
         } else {
-            System.out.println("Pokemon not found in team: " + name);
+            printBoxMessage("Pokemon not found in team: " + name);
         }
     }
 
@@ -332,14 +331,97 @@ public class MainMenu {
      */
     private static void printPokemonList(String title, ArrayList<Pokemon> list) {
         if (list == null || list.isEmpty()) {
-            System.out.println(title + ": no results.");
+            printBoxMessage(title + ": no results.");
             return;
         }
 
-        System.out.println("=== " + title + " (" + list.size() + ") ===");
+        ArrayList<String> lines = new ArrayList<>();
         for (Pokemon pokemon : list) {
-            System.out.println(pokemon);
+            lines.add(pokemon.toString());
         }
+        printBox(title + " (" + list.size() + ")", lines);
+    }
+
+    private static void displayDexBoxed() {
+        ArrayList<Pokemon> list = dexManager.getPokemonList();
+        if (list.isEmpty()) {
+            printBoxMessage("The Pokedex is empty.");
+            return;
+        }
+
+        ArrayList<String> lines = new ArrayList<>();
+        for (Pokemon pokemon : list) {
+            lines.add(pokemon.toString());
+        }
+        printBox("Dimensional Pokedex (" + list.size() + " entries)", lines);
+    }
+
+    private static void displayTeamBoxed() {
+        ArrayList<Pokemon> team = teamBuilder.getTeamSnapshot();
+        if (team.isEmpty()) {
+            printBoxMessage("Team is empty.");
+            return;
+        }
+
+        ArrayList<String> lines = new ArrayList<>();
+        for (Pokemon pokemon : team) {
+            lines.add(pokemon.toString());
+        }
+        printBox("Current Team (" + team.size() + "/6)", lines);
+    }
+
+    private static void printBoxMessage(String message) {
+        ArrayList<String> lines = new ArrayList<>();
+        lines.add(message);
+        printBox("Message", lines);
+    }
+
+    private static void printBox(String title, ArrayList<String> lines) {
+        String horizontal = repeat('-', BOX_WIDTH - 2);
+        System.out.println();
+        System.out.println("+" + horizontal + "+");
+        System.out.println("| " + padRight(title, BOX_WIDTH - 4) + " |");
+        System.out.println("+" + horizontal + "+");
+
+        for (String line : lines) {
+            ArrayList<String> chunks = wrapLine(line, BOX_WIDTH - 4);
+            for (String chunk : chunks) {
+                System.out.println("| " + padRight(chunk, BOX_WIDTH - 4) + " |");
+            }
+        }
+
+        System.out.println("+" + horizontal + "+");
+    }
+
+    private static ArrayList<String> wrapLine(String text, int width) {
+        ArrayList<String> chunks = new ArrayList<>();
+        if (text == null || text.isEmpty()) {
+            chunks.add("");
+            return chunks;
+        }
+
+        int start = 0;
+        while (start < text.length()) {
+            int end = Math.min(start + width, text.length());
+            chunks.add(text.substring(start, end));
+            start = end;
+        }
+        return chunks;
+    }
+
+    private static String padRight(String value, int width) {
+        if (value.length() >= width) {
+            return value.substring(0, width);
+        }
+        return value + repeat(' ', width - value.length());
+    }
+
+    private static String repeat(char c, int count) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < count; i++) {
+            builder.append(c);
+        }
+        return builder.toString();
     }
 
     /**

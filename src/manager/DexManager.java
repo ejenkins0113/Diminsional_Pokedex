@@ -180,5 +180,16 @@ public class DexManager {
         // Gen 5
         addPokemon(new Pokemon(571, "Zoroark",     "Dark",     null,     50,  60, 105,  60, "Norasua", 1, false, true,  false, "It can create illusions to protect its pack."));
         addPokemon(new Pokemon(635, "Hydreigon",   "Dark",     "Dragon",64,  92, 105,  90, "Megalune",2, false, true,  false, "A brutal Pokemon that attacks anything that moves."));
+
+        // Eeveelutions
+        addPokemon(new Pokemon(133, "Eevee",       "Normal",   null,     20,  55,  55,  50, "Norasua",  0, false, true,  true,  "Its irregular genetic code allows it to evolve in many ways."));
+        addPokemon(new Pokemon(134, "Vaporeon",    "Water",    null,     36, 130,  65,  60, "Norasua",  1, false, true,  false, "Its cells are similar to water molecules."));
+        addPokemon(new Pokemon(135, "Jolteon",     "Electric", null,     36,  65,  65,  60, "Megalune", 1, false, true,  false, "It concentrates weak electric charges in every cell."));
+        addPokemon(new Pokemon(136, "Flareon",     "Fire",     null,     36,  65, 130,  60, "Valurtine",1, false, true,  false, "It has a flame chamber inside its body."));
+        addPokemon(new Pokemon(196, "Espeon",      "Psychic",  null,     36,  65,  65,  60, "Univi",    1, false, true,  false, "It uses the fine hair on its body to sense air currents."));
+        addPokemon(new Pokemon(197, "Umbreon",     "Dark",     null,     36,  95,  65, 110, "Norasua",  1, false, true,  false, "When agitated, this Pokemon protects itself by spraying toxic sweat."));
+        addPokemon(new Pokemon(470, "Leafeon",     "Grass",    null,     36,  65, 110, 130, "Megalune", 1, false, true,  false, "Its body is made of soft, plantlike cells."));
+        addPokemon(new Pokemon(471, "Glaceon",     "Ice",      null,     36,  65,  60, 110, "Valurtine",1, false, true,  false, "It can control its body temperature at will."));
+        addPokemon(new Pokemon(700, "Sylveon",     "Fairy",    null,     36,  95,  65,  65, "Univi",    1, false, true,  false, "It wraps its ribbonlike feelers around its Trainer's arm."));
     }
 }

@@ -92,6 +92,15 @@ public class TeamBuilder {
     }
 
     /**
+     * Returns a snapshot copy of current team entries.
+     *
+     * @return list copy of team Pokemon
+     */
+    public ArrayList<Pokemon> getTeamSnapshot() {
+        return new ArrayList<>(team);
+    }
+
+    /**
      * Prints the current team to the console.
      */
     public void displayTeam() {

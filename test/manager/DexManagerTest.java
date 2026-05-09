@@ -138,7 +138,7 @@ public class DexManagerTest {
         assertTrue("loadSampleData - Bulbasaur present", dex.searchByName("Bulbasaur") != null);
         assertTrue("loadSampleData - Pikachu present",   dex.searchByName("Pikachu")   != null);
         assertTrue("loadSampleData - Hydreigon present", dex.searchByName("Hydreigon") != null);
-        assertEqual("loadSampleData - exactly 10 entries", 10, dex.getSize());
+        assertEqual("loadSampleData - exactly 19 entries", 19, dex.getSize());
     }
 
     private static void testSizeAfterOperations() {
