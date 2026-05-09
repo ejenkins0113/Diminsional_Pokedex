@@ -43,7 +43,7 @@ public class TeamBuilderTest {
 
     private static Pokemon makePokemon(int id, String name) {
         return new Pokemon(id, name, "Normal", null, 10, 50, 50, 50,
-                "Prime", 0, false, true, true, "Team test entry");
+                "Norasua", 0, false, true, true, "Team test entry");
     }
 
     private static TeamBuilder makeFullTeam() {

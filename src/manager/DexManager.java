@@ -161,13 +161,24 @@ public class DexManager {
      * Loads a curated sample dataset spanning multiple types and dimensions.
      */
     public void loadSampleData() {
-        addPokemon(new Pokemon(1,   "Bulbasaur",   "Grass",  "Poison", 5,  45, 49, 49, "Prime",   0, false, true,  true,  "A strange seed is planted on its back at birth."));
-        addPokemon(new Pokemon(4,   "Charmander",  "Fire",   null,     5,  39, 52, 43, "Prime",   0, false, true,  true,  "The flame on its tail indicates its life force."));
-        addPokemon(new Pokemon(7,   "Squirtle",    "Water",  null,     5,  44, 48, 65, "Prime",   0, false, true,  true,  "After birth, its back swells and hardens into a shell."));
-        addPokemon(new Pokemon(25,  "Pikachu",     "Electric",null,   10,  35, 55, 40, "Prime",   1, false, true,  true,  "It raises its tail to check its surroundings."));
-        addPokemon(new Pokemon(150, "Mewtwo",      "Psychic",null,    70, 106,110, 90, "Shadow",  2, false, true,  true,  "A Pokemon created by recombining Mew's genes."));
-        addPokemon(new Pokemon(248, "Tyranitar",   "Rock",  "Dark",   55, 100,134,110, "Ruins",   2, false, true,  false, "If it rampages, it knocks down mountains and buries rivers."));
-        addPokemon(new Pokemon(445, "Garchomp",    "Dragon","Ground",  60,  95,130, 95, "Storm",  2, false, true,  false, "When it folds up its body and extends its wings, it can fly like a jet plane."));
-        addPokemon(new Pokemon(6,   "Charizard",   "Fire",  "Flying", 36,  78, 84, 78, "Prime",   2, false, true,  true,  "It spits fire that is hot enough to melt boulders."));
+        // Gen 1
+        addPokemon(new Pokemon(1,   "Bulbasaur",   "Grass",   "Poison",  5,  45,  49,  49, "Norasua",   0, false, true,  true,  "A strange seed is planted on its back at birth."));
+        addPokemon(new Pokemon(25,  "Pikachu",     "Electric", null,     10,  35,  55,  40, "Megalune",  1, false, true,  true,  "It raises its tail to check its surroundings."));
+
+        // Gen 2
+        addPokemon(new Pokemon(152, "Chikorita",   "Grass",    null,      8,  45,  49,  65, "Valurtine", 0, false, true,  true,  "A sweet aroma gently wafts from the leaf on its head."));
+        addPokemon(new Pokemon(248, "Tyranitar",   "Rock",     "Dark",  55, 100, 134, 110, "Univi",    2, false, true,  false, "If it rampages, it knocks down mountains and buries rivers."));
+
+        // Gen 3
+        addPokemon(new Pokemon(282, "Gardevoir",   "Psychic",  "Fairy", 42,  68,  65,  65, "Norasua", 2, false, true,  false, "It has the power to predict the future."));
+        addPokemon(new Pokemon(376, "Metagross",   "Steel",    "Psychic",58,  80, 135, 130, "Megalune",2, false, true,  false, "Its four brains can outperform a supercomputer."));
+
+        // Gen 4
+        addPokemon(new Pokemon(445, "Garchomp",    "Dragon",   "Ground", 60,  95, 130,  95, "Valurtine",2, false, true,  false, "It can fly at sonic speed while hunting prey."));
+        addPokemon(new Pokemon(448, "Lucario",     "Fighting", "Steel", 48,  70, 110,  70, "Univi",   2, false, true,  true,  "It can read and manipulate aura."));
+
+        // Gen 5
+        addPokemon(new Pokemon(571, "Zoroark",     "Dark",     null,     50,  60, 105,  60, "Norasua", 1, false, true,  false, "It can create illusions to protect its pack."));
+        addPokemon(new Pokemon(635, "Hydreigon",   "Dark",     "Dragon",64,  92, 105,  90, "Megalune",2, false, true,  false, "A brutal Pokemon that attacks anything that moves."));
     }
 }

@@ -51,7 +51,7 @@ public class DexManagerTest {
     // ==== Helpers ====
 
     private static Pokemon makePokemon(int id, String name) {
-        return new Pokemon(id, name, "Fire", null, 10, 40, 40, 40, "Prime", 0, false, true, true, "Test entry.");
+        return new Pokemon(id, name, "Fire", null, 10, 40, 40, 40, "Norasua", 0, false, true, true, "Test entry.");
     }
 
     // ==== Test Cases ====
@@ -136,8 +136,9 @@ public class DexManagerTest {
         dex.loadSampleData();
         assertTrue("loadSampleData - dex is not empty", dex.getSize() > 0);
         assertTrue("loadSampleData - Bulbasaur present", dex.searchByName("Bulbasaur") != null);
-        assertTrue("loadSampleData - Mewtwo present",    dex.searchByName("Mewtwo")    != null);
         assertTrue("loadSampleData - Pikachu present",   dex.searchByName("Pikachu")   != null);
+        assertTrue("loadSampleData - Hydreigon present", dex.searchByName("Hydreigon") != null);
+        assertEqual("loadSampleData - exactly 10 entries", 10, dex.getSize());
     }
 
     private static void testSizeAfterOperations() {

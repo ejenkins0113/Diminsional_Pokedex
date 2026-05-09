@@ -50,13 +50,13 @@ public class DexManagerFilterTest {
 
     private static DexManager buildSampleDex() {
         DexManager dex = new DexManager();
-        dex.addPokemon(new Pokemon(1,   "Bulbasaur",  "Grass",   "Poison",  5,  45, 49, 49, "Prime",  0, false, true, true, "Grass/Poison starter."));
-        dex.addPokemon(new Pokemon(4,   "Charmander", "Fire",    null,      5,  39, 52, 43, "Prime",  0, false, true, true, "Fire starter."));
-        dex.addPokemon(new Pokemon(7,   "Squirtle",   "Water",   null,      5,  44, 48, 65, "Prime",  0, false, true, true, "Water starter."));
-        dex.addPokemon(new Pokemon(25,  "Pikachu",    "Electric",null,     10,  35, 55, 40, "Prime",  1, false, true, true, "Electric mouse."));
-        dex.addPokemon(new Pokemon(150, "Mewtwo",     "Psychic", null,     70, 106,110, 90, "Shadow", 2, false, true, true, "Psychic legend."));
-        dex.addPokemon(new Pokemon(248, "Tyranitar",  "Rock",    "Dark",   55, 100,134,110, "Ruins",  2, false, true, false, "Rock/Dark titan."));
-        dex.addPokemon(new Pokemon(6,   "Charizard",  "Fire",    "Flying", 36,  78, 84, 78, "Prime",  2, false, true, true,  "Fire/Flying powerhouse."));
+        dex.addPokemon(new Pokemon(1,   "Bulbasaur",  "Grass",   "Poison",  5,  45, 49, 49, "Norasua",   0, false, true, true, "Grass/Poison starter."));
+        dex.addPokemon(new Pokemon(4,   "Charmander", "Fire",    null,      5,  39, 52, 43, "Norasua",   0, false, true, true, "Fire starter."));
+        dex.addPokemon(new Pokemon(7,   "Squirtle",   "Water",   null,      5,  44, 48, 65, "Norasua",   0, false, true, true, "Water starter."));
+        dex.addPokemon(new Pokemon(25,  "Pikachu",    "Electric",null,     10,  35, 55, 40, "Norasua",   1, false, true, true, "Electric mouse."));
+        dex.addPokemon(new Pokemon(150, "Mewtwo",     "Psychic", null,     70, 106,110, 90, "Megalune",  2, false, true, true, "Psychic legend."));
+        dex.addPokemon(new Pokemon(248, "Tyranitar",  "Rock",    "Dark",   55, 100,134,110, "Valurtine", 2, false, true, false, "Rock/Dark titan."));
+        dex.addPokemon(new Pokemon(6,   "Charizard",  "Fire",    "Flying", 36,  78, 84, 78, "Norasua",   2, false, true, true,  "Fire/Flying powerhouse."));
         return dex;
     }
 
@@ -98,20 +98,20 @@ public class DexManagerFilterTest {
 
     private static void testFilterByDimensionReturnsMatches() {
         DexManager dex = buildSampleDex();
-        ArrayList<Pokemon> results = dex.filterByDimension("Prime");
-        assertEqual("filterByDimension - Prime returns 5 results", 5, results.size());
+        ArrayList<Pokemon> results = dex.filterByDimension("Norasua");
+        assertEqual("filterByDimension - Norasua returns 5 results", 5, results.size());
     }
 
     private static void testFilterByDimensionNoMatches() {
         DexManager dex = buildSampleDex();
-        ArrayList<Pokemon> results = dex.filterByDimension("Storm");
+        ArrayList<Pokemon> results = dex.filterByDimension("Univi");
         assertTrue("filterByDimension - no matches returns empty list", results.isEmpty());
     }
 
     private static void testFilterByDimensionCaseInsensitive() {
         DexManager dex = buildSampleDex();
-        ArrayList<Pokemon> lower = dex.filterByDimension("shadow");
-        ArrayList<Pokemon> upper = dex.filterByDimension("SHADOW");
+        ArrayList<Pokemon> lower = dex.filterByDimension("megalune");
+        ArrayList<Pokemon> upper = dex.filterByDimension("MEGALUNE");
         assertEqual("filterByDimension - case-insensitive: lowercase matches", 1, lower.size());
         assertEqual("filterByDimension - case-insensitive: uppercase matches", 1, upper.size());
     }

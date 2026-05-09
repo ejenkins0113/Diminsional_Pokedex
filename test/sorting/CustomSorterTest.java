@@ -47,9 +47,9 @@ public class CustomSorterTest {
     // Builds a small unsorted list: IDs 30, 10, 20 | Levels 50, 5, 30 | Attacks 80, 40, 60
     private static ArrayList<Pokemon> buildUnsortedList() {
         ArrayList<Pokemon> list = new ArrayList<>();
-        list.add(new Pokemon(30, "Alpha",  "Fire",  null, 50, 100, 80, 80, "Prime", 2, false, true, true, "A"));
-        list.add(new Pokemon(10, "Beta",   "Water", null,  5,  60, 40, 40, "Prime", 0, false, true, true, "B"));
-        list.add(new Pokemon(20, "Gamma",  "Grass", null, 30,  80, 60, 60, "Prime", 1, false, true, true, "C"));
+        list.add(new Pokemon(30, "Alpha",  "Fire",  null, 50, 100, 80, 80, "Norasua", 2, false, true, true, "A"));
+        list.add(new Pokemon(10, "Beta",   "Water", null,  5,  60, 40, 40, "Norasua", 0, false, true, true, "B"));
+        list.add(new Pokemon(20, "Gamma",  "Grass", null, 30,  80, 60, 60, "Norasua", 1, false, true, true, "C"));
         return list;
     }
 
@@ -91,7 +91,7 @@ public class CustomSorterTest {
 
     private static void testSortSingleElementNoChange() {
         ArrayList<Pokemon> list = new ArrayList<>();
-        list.add(new Pokemon(5, "Solo", "Psychic", null, 10, 50, 50, 50, "Shadow", 0, false, true, true, "Alone."));
+        list.add(new Pokemon(5, "Solo", "Psychic", null, 10, 50, 50, 50, "Megalune", 0, false, true, true, "Alone."));
         CustomSorter.sort(list, CustomSorter.SortField.LEVEL);
         assertEqual("sort - single element list unchanged", "Solo", list.get(0).getName());
     }

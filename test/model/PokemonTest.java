@@ -51,8 +51,8 @@ public class PokemonTest {
 
     private static void testConstructorAndGetters() {
         Pokemon p = new Pokemon(1, "Flamora", "Fire", null,
-                10, 45, 50, 30, "Prime", 0, false, true, true,
-                "A flame-type starter from the Prime dimension.");
+                10, 45, 50, 30, "Norasua", 0, false, true, true,
+                "A flame-type starter from the Norasua dimension.");
 
         assertEqual("Constructor - id",          1,        p.getId());
         assertEqual("Constructor - name",        "Flamora", p.getName());
@@ -61,7 +61,7 @@ public class PokemonTest {
         assertEqual("Constructor - hp",          45,        p.getHp());
         assertEqual("Constructor - attack",      50,        p.getAttack());
         assertEqual("Constructor - defense",     30,        p.getDefense());
-        assertEqual("Constructor - dimension",   "Prime",   p.getDimension());
+        assertEqual("Constructor - dimension",   "Norasua", p.getDimension());
         assertEqual("Constructor - evolutionStage", 0,      p.getEvolutionStage());
         assertTrue ("Constructor - isMega false",          !p.isMega());
         assertTrue ("Constructor - seen true",              p.isSeen());
@@ -87,14 +87,14 @@ public class PokemonTest {
 
     private static void testToStringMega() {
         Pokemon p = new Pokemon(9, "Megaflare", "Fire", "Dragon",
-                50, 100, 130, 80, "Prime", 2, true, true, true, "Mega evolved.");
+            50, 100, 130, 80, "Norasua", 2, true, true, true, "Mega evolved.");
         String out = p.toString();
         assertTrue("toString - MEGA tag present", out.contains("[MEGA]"));
     }
 
     private static void testToStringSeenNotCaught() {
         Pokemon p = new Pokemon(3, "Shadowix", "Ghost", null,
-                12, 40, 35, 25, "Shadow", 0, false, true, false, "A ghostly form.");
+            12, 40, 35, 25, "Megalune", 0, false, true, false, "A ghostly form.");
         String out = p.toString();
         assertTrue("toString - Seen (not caught)", out.contains("Seen"));
         assertTrue("toString - not Caught",       !out.contains("Caught"));
@@ -109,7 +109,7 @@ public class PokemonTest {
 
     private static void testSetters() {
         Pokemon p = new Pokemon(2, "Boulok", "Rock", null,
-                5, 35, 25, 70, "Prime", 0, false, false, false, "Rocky starter.");
+                5, 35, 25, 70, "Norasua", 0, false, false, false, "Rocky starter.");
 
         p.setLevel(20);
         p.setHp(80);
@@ -142,9 +142,9 @@ public class PokemonTest {
     }
 
     private static void testCompareTo() {
-        Pokemon a = new Pokemon(1, "Alpha", "Fire", null, 10, 40, 40, 40, "Prime", 0, false, false, false, "");
-        Pokemon b = new Pokemon(5, "Beta",  "Water", null, 10, 40, 40, 40, "Prime", 0, false, false, false, "");
-        Pokemon c = new Pokemon(5, "Gamma", "Grass", null, 10, 40, 40, 40, "Prime", 0, false, false, false, "");
+        Pokemon a = new Pokemon(1, "Alpha", "Fire", null, 10, 40, 40, 40, "Norasua", 0, false, false, false, "");
+        Pokemon b = new Pokemon(5, "Beta",  "Water", null, 10, 40, 40, 40, "Norasua", 0, false, false, false, "");
+        Pokemon c = new Pokemon(5, "Gamma", "Grass", null, 10, 40, 40, 40, "Norasua", 0, false, false, false, "");
 
         assertTrue("compareTo - lower id comes first",  a.compareTo(b) < 0);
         assertTrue("compareTo - higher id comes after", b.compareTo(a) > 0);
@@ -153,9 +153,9 @@ public class PokemonTest {
     }
 
     private static void testSortByIdWithCollections() {
-        Pokemon p1 = new Pokemon(10, "Zephyr",  "Flying", null, 5, 30, 30, 30, "Sky",   0, false, false, false, "");
-        Pokemon p2 = new Pokemon(3,  "Crysol",  "Ice",    null, 5, 30, 30, 30, "Frost", 0, false, false, false, "");
-        Pokemon p3 = new Pokemon(7,  "Emberon", "Fire",   null, 5, 30, 30, 30, "Prime", 0, false, false, false, "");
+        Pokemon p1 = new Pokemon(10, "Zephyr",  "Flying", null, 5, 30, 30, 30, "Univi",    0, false, false, false, "");
+        Pokemon p2 = new Pokemon(3,  "Crysol",  "Ice",    null, 5, 30, 30, 30, "Valurtine",0, false, false, false, "");
+        Pokemon p3 = new Pokemon(7,  "Emberon", "Fire",   null, 5, 30, 30, 30, "Norasua",  0, false, false, false, "");
 
         List<Pokemon> list = new ArrayList<>();
         list.add(p1);

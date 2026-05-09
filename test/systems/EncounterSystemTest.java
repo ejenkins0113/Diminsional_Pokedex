@@ -42,7 +42,7 @@ public class EncounterSystemTest {
 
     private static Pokemon makePokemon(int id, String name, int level) {
         return new Pokemon(id, name, "Normal", null, level, 50, 50, 50,
-                "Prime", 0, false, true, true, "Test entry");
+                "Norasua", 0, false, true, true, "Test entry");
     }
 
     private static void testAddEncounterSetsHasEncountersTrue() {

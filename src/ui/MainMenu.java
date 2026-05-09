@@ -159,7 +159,7 @@ public class MainMenu {
      * Prompts for dimension filter and prints matching Pokemon.
      */
     private static void filterByDimension() {
-        String dimension = readText("Enter dimension (e.g. Prime, Shadow): ");
+        String dimension = readText("Enter dimension (e.g. Norasua, Megalune): ");
         ArrayList<Pokemon> matches = dexManager.filterByDimension(dimension);
         printPokemonList("Filter results by dimension", matches);
     }
