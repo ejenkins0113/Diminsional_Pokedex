@@ -3,18 +3,24 @@ package sorting;
 import model.Pokemon;
 import java.util.ArrayList;
 
-// Custom sorting using Selection Sort.
-// Sorts a list of Pokemon in ascending order by a chosen field.
+/**
+ * Provides custom in-place sorting for Pokemon collections using Selection Sort.
+ */
 public class CustomSorter {
 
-    // ==== SortField  ====
+    /**
+     * Supported sort keys.
+     */
     public enum SortField {
         ID, LEVEL, ATTACK
     }
 
-    // ==== Selection Sort ====
-    // Sorts the list in-place in ascending order by the given field.
-    // Does nothing if the list is null or has fewer than 2 elements.
+    /**
+     * Sorts the provided list in ascending order by the selected field.
+     *
+     * @param list list to sort in-place
+     * @param field attribute used for ordering
+     */
     public static void sort(ArrayList<Pokemon> list, SortField field) {
         if (list == null || list.size() < 2) 
             return;
@@ -35,7 +41,13 @@ public class CustomSorter {
         }
     }
 
-    // ==== Field Value Extractor ====
+    /**
+     * Extracts the numeric value used for comparison.
+     *
+     * @param p Pokemon to evaluate
+     * @param field selected sort field
+     * @return integer value corresponding to the chosen field
+     */
     private static int getValue(Pokemon p, SortField field) {
         switch (field) {
             case ID:     return p.getId();

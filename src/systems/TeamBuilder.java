@@ -5,17 +5,27 @@ import java.util.List;
 
 import model.Pokemon;
 
-// Manages a team of up to 6 Pokemon.
-// Supports add, remove, and display operations.
+/**
+ * Manages a trainer team with a fixed maximum size.
+ */
 public class TeamBuilder {
     private static final int MAX_TEAM_SIZE = 6;
 
     private final List<Pokemon> team;
 
+    /**
+     * Creates an empty team.
+     */
     public TeamBuilder() {
         this.team = new ArrayList<>();
     }
 
+    /**
+     * Adds a Pokemon to the team if valid, unique, and under capacity.
+     *
+     * @param pokemon Pokemon to add
+     * @return true when successfully added
+     */
     public boolean addToTeam(Pokemon pokemon) {
         if (pokemon == null || pokemon.getName() == null || pokemon.getName().trim().isEmpty()) {
             return false;
@@ -28,6 +38,12 @@ public class TeamBuilder {
         return true;
     }
 
+    /**
+     * Removes a Pokemon by name.
+     *
+     * @param name Pokemon name to remove
+     * @return true when a matching team member is removed
+     */
     public boolean removeFromTeamByName(String name) {
         String normalizedName = normalizeName(name);
         if (normalizedName == null) {
@@ -45,6 +61,12 @@ public class TeamBuilder {
         return false;
     }
 
+    /**
+     * Checks whether the team already contains a Pokemon by name.
+     *
+     * @param name name to check
+     * @return true when present
+     */
     public boolean contains(String name) {
         String normalizedName = normalizeName(name);
         if (normalizedName == null) {
@@ -60,10 +82,18 @@ public class TeamBuilder {
         return false;
     }
 
+    /**
+     * Returns current team size.
+     *
+     * @return number of Pokemon in team
+     */
     public int getTeamSize() {
         return team.size();
     }
 
+    /**
+     * Prints the current team to the console.
+     */
     public void displayTeam() {
         if (team.isEmpty()) {
             System.out.println("Team is empty.");
@@ -76,6 +106,12 @@ public class TeamBuilder {
         }
     }
 
+    /**
+     * Normalizes a Pokemon name for case-insensitive comparisons.
+     *
+     * @param name raw name input
+     * @return normalized lowercase name, or null when invalid
+     */
     private String normalizeName(String name) {
         if (name == null) {
             return null;

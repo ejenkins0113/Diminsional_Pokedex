@@ -11,8 +11,12 @@ import systems.EncounterSystem;
 import systems.EvolutionHistory;
 import systems.TeamBuilder;
 
-// Entry point and console menu for Dimensional Dex.
-// Integrates manager, sorting, and all Day 6 systems.
+/**
+ * Console entry point and interactive menu for Dimensional Dex.
+ *
+ * <p>Integrates dex management, sorting, encounters, evolution history,
+ * and team building into a single command-line workflow.</p>
+ */
 public class MainMenu {
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -22,6 +26,11 @@ public class MainMenu {
     private static final EvolutionHistory evolutionHistory = new EvolutionHistory();
     private static final TeamBuilder teamBuilder = new TeamBuilder();
 
+    /**
+     * Runs the interactive console loop.
+     *
+     * @param args command-line arguments (unused)
+     */
     public static void main(String[] args) {
         System.out.println("Dimensional Dex - Console Ready");
 
@@ -89,6 +98,9 @@ public class MainMenu {
         scanner.close();
     }
 
+    /**
+     * Prints the main command menu.
+     */
     private static void printMainMenu() {
         System.out.println("\n=== Dimensional Dex Menu ===");
         System.out.println("1. Load sample Pokemon data");
@@ -109,6 +121,9 @@ public class MainMenu {
         System.out.println("0. Exit");
     }
 
+    /**
+     * Loads built-in sample Pokemon data into the dex once.
+     */
     private static void loadSampleData() {
         if (dexManager.getSize() > 0) {
             System.out.println("Sample data already loaded or dex already has entries. Skipped.");
@@ -118,6 +133,9 @@ public class MainMenu {
         System.out.println("Sample data loaded. Entries in dex: " + dexManager.getSize());
     }
 
+    /**
+     * Prompts for and searches a Pokemon by name.
+     */
     private static void searchPokemon() {
         String name = readText("Enter Pokemon name to search: ");
         Pokemon found = dexManager.searchByName(name);
@@ -128,18 +146,27 @@ public class MainMenu {
         System.out.println("Found: " + found);
     }
 
+    /**
+     * Prompts for type filter and prints matching Pokemon.
+     */
     private static void filterByType() {
         String type = readText("Enter type (e.g. Fire, Water): ");
         ArrayList<Pokemon> matches = dexManager.filterByType(type);
         printPokemonList("Filter results by type", matches);
     }
 
+    /**
+     * Prompts for dimension filter and prints matching Pokemon.
+     */
     private static void filterByDimension() {
         String dimension = readText("Enter dimension (e.g. Prime, Shadow): ");
         ArrayList<Pokemon> matches = dexManager.filterByDimension(dimension);
         printPokemonList("Filter results by dimension", matches);
     }
 
+    /**
+     * Prompts for sort field and sorts dex entries in ascending order.
+     */
     private static void sortDex() {
         if (dexManager.getPokemonList().isEmpty()) {
             System.out.println("Dex is empty. Load sample data first.");
@@ -170,6 +197,9 @@ public class MainMenu {
         dexManager.displayAllPokemon();
     }
 
+    /**
+     * Queues a dex Pokemon into the encounter system by name.
+     */
     private static void addEncounter() {
         if (dexManager.getPokemonList().isEmpty()) {
             System.out.println("Dex is empty. Load sample data first.");
@@ -192,6 +222,9 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Processes (removes) the next queued encounter.
+     */
     private static void processNextEncounter() {
         Pokemon next = encounterSystem.nextEncounter();
         if (next == null) {
@@ -202,6 +235,9 @@ public class MainMenu {
         System.out.println("Remaining encounters: " + encounterSystem.getEncounterCount());
     }
 
+    /**
+     * Displays the next queued encounter without removing it.
+     */
     private static void previewNextEncounter() {
         Pokemon next = encounterSystem.peekNextEncounter();
         if (next == null) {
@@ -211,6 +247,9 @@ public class MainMenu {
         System.out.println("Next encounter: " + next);
     }
 
+    /**
+     * Records a free-text evolution event.
+     */
     private static void recordEvolutionEvent() {
         String event = readText("Enter evolution event text: ");
         boolean recorded = evolutionHistory.recordEvolution(event);
@@ -222,6 +261,9 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Undoes the most recently recorded evolution event.
+     */
     private static void undoEvolutionEvent() {
         String undone = evolutionHistory.undoLastEvolution();
         if (undone == null) {
@@ -231,6 +273,9 @@ public class MainMenu {
         System.out.println("Undid: " + undone);
     }
 
+    /**
+     * Peeks at the latest evolution event without removing it.
+     */
     private static void peekEvolutionEvent() {
         String latest = evolutionHistory.peekLastEvolution();
         if (latest == null) {
@@ -240,6 +285,9 @@ public class MainMenu {
         System.out.println("Latest evolution event: " + latest);
     }
 
+    /**
+     * Adds a Pokemon from the dex to the active team.
+     */
     private static void addToTeam() {
         if (dexManager.getPokemonList().isEmpty()) {
             System.out.println("Dex is empty. Load sample data first.");
@@ -262,6 +310,9 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Removes a Pokemon from the active team by name.
+     */
     private static void removeFromTeam() {
         String name = readText("Enter Pokemon name to remove from team: ");
         boolean removed = teamBuilder.removeFromTeamByName(name);
@@ -273,6 +324,12 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Prints a titled list of Pokemon.
+     *
+     * @param title section title
+     * @param list Pokemon entries to print
+     */
     private static void printPokemonList(String title, ArrayList<Pokemon> list) {
         if (list == null || list.isEmpty()) {
             System.out.println(title + ": no results.");
@@ -285,6 +342,12 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Repeatedly prompts until a valid integer is entered.
+     *
+     * @param prompt input prompt text
+     * @return parsed integer value
+     */
     private static int readInt(String prompt) {
         while (true) {
             System.out.print(prompt);
@@ -297,6 +360,12 @@ public class MainMenu {
         }
     }
 
+    /**
+     * Repeatedly prompts until non-blank text is entered.
+     *
+     * @param prompt input prompt text
+     * @return trimmed non-empty text
+     */
     private static String readText(String prompt) {
         while (true) {
             System.out.print(prompt);

@@ -4,27 +4,41 @@ import model.Pokemon;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// Handles all Pokedex logic: storage, search, filter, and display.
-// Uses ArrayList<Pokemon> for the main list and HashMap<String, Pokemon> for name lookup.
+/**
+ * Handles core Pokedex operations such as storage, lookup, filtering, and display.
+ *
+ * <p>Uses an ArrayList for ordered iteration and a HashMap for fast name-based lookup.</p>
+ */
 public class DexManager {
 
     // ==== Storage ====
     private ArrayList<Pokemon> pokemonList;
     private HashMap<String, Pokemon> pokemonMap; // key: normalized name (trimmed + lowercase)
 
-    // ==== Constructor ====
+    /**
+     * Creates an empty dex manager.
+     */
     public DexManager() {
         pokemonList = new ArrayList<>();
         pokemonMap = new HashMap<>();
     }
 
-    // ==== Name Normalization ====
+    /**
+     * Normalizes a Pokemon name for consistent map keys.
+     *
+     * @param name raw Pokemon name
+     * @return trimmed, lowercase key
+     */
     private String normalize(String name) {
         return name.trim().toLowerCase();
     }
 
-    // ==== Add ====
-    // Returns true if added successfully, false if duplicate or null.
+    /**
+     * Adds a Pokemon to the dex when valid and not already present by name.
+     *
+     * @param pokemon Pokemon to add
+     * @return true when added; false for null or duplicate name
+     */
     public boolean addPokemon(Pokemon pokemon) {
         if (pokemon == null) 
             return false;
@@ -38,8 +52,12 @@ public class DexManager {
           
     }
 
-    // ==== Remove ====
-    // Returns true if found and removed, false if not found.
+    /**
+     * Removes a Pokemon by name.
+     *
+     * @param name Pokemon name to remove
+     * @return true when removed; false when missing or invalid input
+     */
     public boolean removePokemonByName(String name) {
         if (name == null) 
             return false;
@@ -52,15 +70,21 @@ public class DexManager {
             return true;
     }
 
-    // ==== Search ====
-    // Returns matching Pokemon or null if not found.
+    /**
+     * Searches for a Pokemon by name.
+     *
+     * @param name Pokemon name
+     * @return matching Pokemon, or null when not found/invalid
+     */
     public Pokemon searchByName(String name) {
         if (name == null) 
             return null;
         return pokemonMap.get(normalize(name));
     }
 
-    // ==== Display All ====
+    /**
+     * Prints all Pokemon currently stored in the dex.
+     */
     public void displayAllPokemon() {
         if (pokemonList.isEmpty()) {
             System.out.println("The Pokedex is empty.");
@@ -73,9 +97,12 @@ public class DexManager {
         }
     }
 
-    // ==== Filter by Type ====
-    // Returns all Pokemon whose primary or secondary type matches (case-insensitive).
-    // Returns an empty list if no matches are found.
+    /**
+     * Filters Pokemon by primary or secondary type.
+     *
+     * @param type type query (case-insensitive)
+     * @return list of matches, or empty list if none/invalid input
+     */
     public ArrayList<Pokemon> filterByType(String type) {
         ArrayList<Pokemon> results = new ArrayList<>();
         if (type == null) 
@@ -94,9 +121,12 @@ public class DexManager {
         return results;
     }
 
-    // ==== Filter by Dimension ====
-    // Returns all Pokemon from the given dimension (case-insensitive).
-    // Returns an empty list if no matches are found.
+    /**
+     * Filters Pokemon by dimension.
+     *
+     * @param dimension dimension query (case-insensitive)
+     * @return list of matches, or empty list if none/invalid input
+     */
     public ArrayList<Pokemon> filterByDimension(String dimension) {
         ArrayList<Pokemon> results = new ArrayList<>();
         if (dimension == null) 
@@ -111,15 +141,25 @@ public class DexManager {
         return results;
     }
 
-    // ==== Getters ====
+    /**
+     * Returns the underlying dex list.
+     *
+     * @return mutable pokemon list used by this manager
+     */
     public ArrayList<Pokemon> getPokemonList() {
          return pokemonList; }
-         
+
+    /**
+     * Returns current number of entries.
+     *
+     * @return total Pokemon count in the dex
+     */
     public int getSize() { 
         return pokemonList.size(); }
 
-    // ==== Sample Data ====
-    // Seeds the dex with starter Pokemon across multiple types and dimensions.
+    /**
+     * Loads a curated sample dataset spanning multiple types and dimensions.
+     */
     public void loadSampleData() {
         addPokemon(new Pokemon(1,   "Bulbasaur",   "Grass",  "Poison", 5,  45, 49, 49, "Prime",   0, false, true,  true,  "A strange seed is planted on its back at birth."));
         addPokemon(new Pokemon(4,   "Charmander",  "Fire",   null,     5,  39, 52, 43, "Prime",   0, false, true,  true,  "The flame on its tail indicates its life force."));
