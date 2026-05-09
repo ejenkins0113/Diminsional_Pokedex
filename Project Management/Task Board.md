@@ -1,12 +1,10 @@
 # Task Board
 
 ## To Do
-- Run final testing and cleanup
+- None
 
 ## In Progress
-- Integrate console menu with all systems
-- Add invalid-input handling across menu flows
-- Prepare final demo validation pass
+- None
 
 ## Done
 - Project management structure created
@@ -32,3 +30,7 @@
 - TeamBuilder implemented: max size 6, duplicate rejection, remove/contains/display
 - TeamBuilderTest written and passing: 14/14
 - Full regression suites passing: 129/129
+- MainMenu integrated with DexManager, CustomSorter, EncounterSystem, EvolutionHistory, and TeamBuilder
+- Console menu input validation added for numeric choices and text entry
+- Manual Day 7 menu walkthrough completed with no crashes across core feature paths
+- Milestone 5 marked complete and project set to demo-ready

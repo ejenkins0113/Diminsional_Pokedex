@@ -2,7 +2,8 @@
 
 **Date:** May 5, 2026
 **Sprint Goal:** Complete Milestone 2 by adding filter operations to DexManager, and implement the custom sorting algorithm in CustomSorter to satisfy Milestone 3 sorting requirements.
-**Milestone:** Milestone 2 - Core Manager Ready | Status: Done | Milestone 3 sorting | Status: Done
+**Milestone:** Milestone 2 - Core Manager Ready | Status: Done
+**Milestone Progress:** Milestone 3 - Sorting and Encounters Ready | Status: In Progress (sorting complete)
 
 ## Day 3 Coverage Summary
 Day 3 delivered all planned features without blockers. filterByType and filterByDimension were added to DexManager following the same iterative pattern as the core methods. Both filters return a new ArrayList and never modify the original list. CustomSorter was implemented with a SortField enum (ID, LEVEL, ATTACK) and a Selection Sort algorithm that sorts in-place in ascending order. DexManagerFilterTest (14 tests) and CustomSorterTest (11 tests) were written and both passed on first run. The total test count reached 88/88 across all suites with no regressions in existing tests.

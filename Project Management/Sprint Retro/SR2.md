@@ -2,7 +2,7 @@
 
 **Date:** May 4, 2026
 **Sprint Goal:** Build the core DexManager logic so the app can manage Pokemon data reliably through add, remove, search, and display operations.
-**Milestone:** Milestone 2 - Core Manager Ready | Status: In Progress
+**Milestone:** Milestone 2 - Core Manager Ready | Status: Done
 
 ## Day 2 Coverage Summary
 Day 2 focused on implementing the DexManager class with full core operations. The ArrayList and HashMap storage structures were set up and kept synchronized throughout all operations. Add, remove, search, and display methods were implemented with null checking, duplicate rejection, and name normalization. Eight sample Pokemon were seeded across four dimensions. A full test class was written and all 22 tests passed. A stray .class file issue discovered in src/ was also identified and cleaned up, and the test compilation was corrected to reference the main out/ directory.
