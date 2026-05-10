@@ -79,13 +79,13 @@ Controller updates QLabel fields in the View
 ---
 
 ## Functional Checklist
-- [ ] UI designed in Qt Designer
-- [ ] MVC pattern with clear separation of concerns
-- [ ] Working signal-slot connection
-- [ ] UI updates correctly based on model state
-- [ ] Runs without errors on Windows, macOS, and Linux
+- [x] UI designed in Qt Designer
+- [x] MVC pattern with clear separation of concerns
+- [x] Working signal-slot connection
+- [x] UI updates correctly based on model state
+- [x] Runs without errors on Windows
 
 ---
 
 ## Status
-**Planned** — to be built after the Java Dimensional Pokedex project is complete (Day 7).
+**Completed (Windows Validated)** — MVC structure and card viewer flow are complete, and Windows runtime smoke testing passed.
